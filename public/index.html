@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBdvSpSLQjx-WOtjRoprbKvhrukHL_jpHw",
+        authDomain: "gangespillet.firebaseapp.com",
+        databaseURL: "https://gangespillet.firebaseio.com",
+        projectId: "gangespillet",
+        storageBucket: "",
+        messagingSenderId: "1064011074232"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Bungee+Hairline|Bungee+Outline|Hanalei+Fill|Luckiest+Guy|Sirin+Stencil|Supermercado+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gangetabellen</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body  onresize="resize()" onkeydown="movePlayer(event)">
+<div class="gridcontainer">
+    <div id="pausescreen" class="fixed hidden">
+        <h1 class="text"> PAUSE </h1>
+        <h4 id="continue" class="text"> Fortsett </h4>
+        <h4 id="quit" class="text"> Avslutt </h4>
+    </div>
+    <div class="left"></div>
+    <div class="center">
+        <div id="start" class="">
+            <div class="header">
+                <h1>Gangespillet</h1>
+            </div>
+            <h3>Dette spillet består av to trinn:</h3>
+            <ul>
+                <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med</li>
+                <li> Velg det riktige alternativet!</li>
+            </ul>
+            <button class="startgame"> START </button>
+        </div>
+        <div id="game" class="game hidden">
+            <div id="topgame">
+                <div class="topbar flex"> 
+                    <h4 id="pause"> Pause </h4>
+                    <h4 id="score"> 0 </h4>
+                </div>
+                <h3 id="gange" class="fixed gange animation">Lykke til!</h3>
+                <!-- <div id="numbersbar" class="numbersbar flex animation">
+                    <div id="alt1" class="numberstyle"> 25</div>
+                    <div id="alt2" class="numberstyle"> 14 </div>
+                    <div id="alt3" class="numberstyle"> 5 </div>
+                </div> -->
+            </div>
+            <div id="choose" class="flex">
+                <div id="choose1" class="numberstyle"></div>
+                <div id="choose2" class="numberstyle">
+                        <div class="player"></div>
+                        <div class="partner hidden"></div>
+                </div>
+                <div id="choose3" class="numberstyle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="right"></div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/updatedistance.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/resize.js"></script>
+    <script src="js/startGame.js"></script>
+    
+</body>
+
+</html>

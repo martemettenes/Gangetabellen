@@ -1,0 +1,22 @@
+{
+  "name": "gangetabellen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martemettenes/Gangetabellen.git"
+  },
+  "author": "Marte Mettenes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martemettenes/Gangetabellen/issues"
+  },
+  "homepage": "https://github.com/martemettenes/Gangetabellen#readme",
+  "dependencies": {
+    "node": "^10.4.0"
+  }
+}
