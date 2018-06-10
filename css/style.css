@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+}
+
+
+/*
+
+font-family: 'Bangers', cursive;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Sirin Stencil', cursive;
+font-family: 'Bungee Hairline', cursive;
+font-family: 'Hanalei Fill', cursive;
+font-family: 'Supermercado One', cursive;
+font-family: 'Bungee Outline', cursive;
+
+font-family: 'Open Sans', sans-serif;
+
+*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #666F9A;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.game {
+    height: 100vh;
+    justify-content: flex-end;
+}
+
+#score {
+    text-align: right;
+    width: 60%;
+    margin: 0;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.scoreanimation {
+    animation: score 0.5s alternate-reverse 1;
+}
+
+@keyframes score {
+    0% {font-size: 1em;}
+    100% {font-size: 1.8em;
+    color: #FF7373;}
+}
+
+#pause {
+    text-align: left;
+    width: 40%;
+    margin: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#pause, 
+#continue,
+#quit {
+    cursor: pointer;
+}
+
+
+
+
+#pausescreen {
+    width: 30vw;
+    height: 100vh;
+    z-index: 1000;
+    background: lightblue;
+    text-align: center;
+}
+
+.pause-screen-animation {
+    animation: pauseAnimation 1s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.continue-screen-animation {
+    animation: continueAnimation 1s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes pauseAnimation {
+    0%   {width: 0vw;}
+    100% {width: 100vw;}
+}
+
+@keyframes continueAnimation {
+    0%   {width: 100vw;}
+    80%  {opacity: 1;}
+    100% {width: 20vw;
+        opacity: 0;}
+}
+
+.text-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.text-fade-out {
+    animation: fadeOut 1s ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.top, 
+.game, 
+#start {
+    width: 100%;
+}
+
+#start {
+    text-align: center;
+    padding: 15%;
+    color: papayawhip;
+}
+
+.header {
+    font-size: 3em;
+    color: lightblue;
+    text-transform: uppercase;
+    /* font-family: 'Bangers', cursive; */
+    font-family: 'Luckiest Guy', cursive;
+}
+
+
+ul {
+    padding: 0;
+}
+
+li {
+   list-style: none;
+   padding-top: 15px;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+h3 {
+    margin: 0 auto;
+}
+
+button {
+    min-width: 10vw;
+    padding: 3%;
+    background: #FF7373;
+    border: none;
+    border-radius: 5px;
+    color: papayawhip;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 50px;
+    animation: pulse 1.5s alternate infinite;
+}
+
+@keyframes pulse {
+    0%   {background-color: #FF7373 }
+    100% {background-color: lightblue }
+}
+
+#alt0,
+#alt1, 
+#alt2 {
+    justify-content: space-evenly;
+    text-align: center;
+    border-radius: 100px;
+    background-color: papayawhip;
+}
+
+.gridcontainer {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 100vh;
+}
+
+.numbersbar {
+    justify-content: space-around;
+    position: relative;
+    top: -150px;
+    overflow: scroll;
+    animation: down 4s linear;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes down {
+    0%   {top:0px;}
+    100% {top: 810px;}
+}
+
+#choose {
+    width: 100%;
+    height: 20%;
+    bottom: 0px;
+    justify-content: space-around;
+    position: relative;
+}
+
+.numberstyle {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    vertical-align: middle;
+}
+
+#topgame {
+    height: 80%;
+}
+
+.partner,
+.player,
+.numbers{
+    text-align: center;
+    background-color: #FF7373;
+    border-radius: 100px;
+    margin-top: 5px;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.topbar {
+    height: 10%;
+    color: papayawhip;
+}
+
+.gange {
+    text-align: center;
+    width: max-content;
+    margin-top: 10%;
+    animation: fadeIn 2s;
+    animation-iteration-count: 1;
+    /* font-family: 'Luckiest Guy', cursive; */
+    color: #FFEFAB;
+    font-size: 1.5em;
+}
+
+@keyframes fadeIn {
+    0%   {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0%   {opacity: 1;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.hidden {
+    display: none;
+}
+
+/* PAUSE GAME */
+
+.pausegame {
+    animation-play-state: paused;
+}
