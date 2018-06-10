@@ -42,16 +42,14 @@ body {
 
 
 .game {
-    height: 100vh;
+    height: 95vh;
     justify-content: flex-end;
 }
 
 #score {
     text-align: right;
     width: 60%;
-    margin: 0;
     padding-right: 10px;
-    padding-top: 10px;
 }
 
 .scoreanimation {
@@ -64,12 +62,18 @@ body {
     color: #FF7373;}
 }
 
+#score,
+#pause {
+    margin: 0;
+    padding-top: 10px;
+    font-size: 1.2em;
+
+}
+
 #pause {
     text-align: left;
     width: 40%;
-    margin: 0;
     padding-left: 10px;
-    padding-top: 10px;
 }
 
 #pause, 
@@ -139,11 +143,13 @@ body {
 }
 
 .header {
-    font-size: 3em;
+    font-size: 3.5vw;
     color: lightblue;
     text-transform: uppercase;
     /* font-family: 'Bangers', cursive; */
     font-family: 'Luckiest Guy', cursive;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 
@@ -196,6 +202,7 @@ button {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 100vh;
+    padding-bottom: 20px;
 }
 
 .numbersbar {
@@ -209,8 +216,8 @@ button {
 
 
 @keyframes down {
-    0%   {top:0px;}
-    100% {top: 810px;}
+    0%   {top:-100px;}
+    100% {top: 150%;}
 }
 
 #choose {
@@ -226,6 +233,8 @@ button {
     height: 70px;
     line-height: 70px;
     vertical-align: middle;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 
 #topgame {
@@ -282,3 +291,50 @@ button {
 .pausegame {
     animation-play-state: paused;
 }
+
+
+
+            /*-------------*/
+            /* MEDIA QUERY */
+            /*-------------*/
+
+
+@media screen and (max-width: 800px) {
+
+    .left, 
+    .right {
+        display: hidden;
+    }
+
+    .center {
+        width: 100vw;
+    }
+    
+    body {
+        font-size: 12px;
+    }
+
+
+  }
+
+
+
+@media screen and (max-width: 500px) {
+    
+    .left, 
+    .right {
+        display: hidden;
+    }
+
+    .center {
+        width: 100vw;
+    }
+
+
+  }
+
+
+
+
+
+

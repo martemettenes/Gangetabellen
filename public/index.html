@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script>
     // Initialize Firebase
@@ -19,13 +20,17 @@
 
     <link href="https://fonts.googleapis.com/css?family=Bangers|Bungee+Hairline|Bungee+Outline|Hanalei+Fill|Luckiest+Guy|Sirin+Stencil|Supermercado+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Gangetabellen</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body  onresize="resize()" onkeydown="movePlayer(event)">
+
+
+
+
+<body onload="resize()"  onresize="resize()" onkeydown="movePlayer(event)">
 <div class="gridcontainer">
     <div id="pausescreen" class="fixed hidden">
         <h1 class="text"> PAUSE </h1>
@@ -40,7 +45,7 @@
             </div>
             <h3>Dette spillet består av to trinn:</h3>
             <ul>
-                <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med</li>
+                <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med.</li>
                 <li> Velg det riktige alternativet!</li>
             </ul>
             <button class="startgame"> START </button>
