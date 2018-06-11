@@ -226,7 +226,7 @@ function movePlayer (event){
     if (keyPressed == '38'){
         numbersPos = gameHeight;
         console.log(numbersPos);
-        console.log('alt0');
+        console.log('UP');
         setDistance(numbersPos);
     }
 
@@ -239,12 +239,12 @@ function movePlayer (event){
     }
 
 
-    if (keyPressed == '32' && pauseScreen.classList.contains('pause-screen-animation')){
+    if (keyPressed == '32' && pauseScreen.classList.contains('pause-screen-animation') && startScreen.classList.contains('hidden')){
         continueGame();
     }
 
 
-    else if(keyPressed == '32'){
+    else if(keyPressed == '32' && startScreen.classList.contains('hidden')){
         pauseGame();
     }
 
