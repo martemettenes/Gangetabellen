@@ -146,10 +146,16 @@ body {
     font-size: 3.5vw;
     color: lightblue;
     text-transform: uppercase;
-    /* font-family: 'Bangers', cursive; */
     font-family: 'Luckiest Guy', cursive;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.pause-header {
+    margin-top: 10%;
+    font-size: 4vw;
+    height: 10vh;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 
@@ -170,6 +176,8 @@ h3 {
     margin: 0 auto;
 }
 
+
+
 button {
     min-width: 10vw;
     padding: 3%;
@@ -180,12 +188,19 @@ button {
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 50px;
-    animation: pulse 1.5s alternate infinite;
+    animation: pulse 2s alternate infinite ease-in-out;
 }
 
 @keyframes pulse {
-    0%   {background-color: #FF7373 }
-    100% {background-color: lightblue }
+    0% {background-color: lightblue;
+        color: #666F9A;  }
+    100%   {background-color: #FF7373;
+        color: papayawhip;}
+}
+    
+
+#total-score {
+    margin-top: 10%;
 }
 
 #alt0,
@@ -195,6 +210,13 @@ button {
     text-align: center;
     border-radius: 100px;
     background-color: papayawhip;
+    cursor: pointer;
+}
+
+#alt0:hover, 
+#alt1:hover, 
+#alt2:hover {
+    background-color: #FF7373;
 }
 
 .gridcontainer {
@@ -208,10 +230,12 @@ button {
 .numbersbar {
     justify-content: space-around;
     position: relative;
-    top: -150px;
-    animation: down 4s linear;
+    animation: down 5s linear;
     animation-iteration-count: 1;
-    overflow: hidden;
+}
+
+.bottom {
+    bottom: 0;
 }
 
 
@@ -235,6 +259,8 @@ button {
     vertical-align: middle;
     font-size: 1.5em;
     font-weight: 500;
+
+    user-select: none;
 }
 
 #topgame {
@@ -248,6 +274,11 @@ button {
     background-color: #FF7373;
     border-radius: 100px;
     margin-top: 5px;
+}
+
+.empty {
+    border: 2px solid #FF7373;
+    border-radius: 100px;
 }
 
 .fixed {
@@ -266,7 +297,7 @@ button {
     animation: fadeIn 2s;
     animation-iteration-count: 1;
     /* font-family: 'Luckiest Guy', cursive; */
-    color: #FFEFAB;
+    color: papayawhip;
     font-size: 1.5em;
 }
 
@@ -290,6 +321,10 @@ button {
 
 .pausegame {
     animation-play-state: paused;
+}
+
+.text {
+    color: #666F9A;
 }
 
 

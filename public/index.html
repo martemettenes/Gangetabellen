@@ -33,7 +33,7 @@
 <body onload="resize()"  onresize="resize()" onkeydown="movePlayer(event)">
 <div class="gridcontainer">
     <div id="pausescreen" class="fixed hidden">
-        <h1 class="text"> PAUSE </h1>
+        <h1 class="pause-header text"> PAUSE </h1>
         <h4 id="continue" class="text"> Fortsett </h4>
         <h4 id="quit" class="text"> Avslutt </h4>
     </div>
@@ -43,12 +43,16 @@
             <div class="header">
                 <h1>Gangespillet</h1>
             </div>
-            <h3>Dette spillet består av to trinn:</h3>
-            <ul>
-                <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med.</li>
-                <li> Velg det riktige alternativet!</li>
-            </ul>
+            <div id="game-info">
+                 <h3>Dette spillet består av to trinn:</h3>
+                 <ul>
+                    <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med.</li>
+                    <li> Velg det riktige alternativet!</li>
+                </ul>
+            </div>
             <button class="startgame"> START </button>
+            <div id="total-score">
+            </div>
         </div>
         <div id="game" class="game hidden">
             <div id="topgame">
@@ -77,6 +81,7 @@
 </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/weightedRandom.js"></script>
     <script src="js/updatedistance.js"></script>
     <script src="js/score.js"></script>
     <script src="js/script.js"></script>
