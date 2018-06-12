@@ -9,7 +9,9 @@ startBtn.addEventListener('mousedown', function () {
     partner = -1;
     scoreUi.innerHTML = score;
     startGame();
-    continueGame();
+    pauseScreen.classList.remove('pause-screen-animation');
+        pauseScreen.classList.add('continue-screen-animation');
+        document.querySelector('*').classList.remove('pausegame');
     initializeGameArea();
     resize();
 })

@@ -58,7 +58,7 @@ body {
 
 @keyframes score {
     0% {font-size: 1em;}
-    100% {font-size: 1.8em;
+    100% {font-size: 2em;
     color: #FF7373;}
 }
 
@@ -67,6 +67,7 @@ body {
     margin: 0;
     padding-top: 10px;
     font-size: 1.2em;
+    text-transform: uppercase;
 
 }
 
@@ -94,13 +95,13 @@ body {
 }
 
 .pause-screen-animation {
-    animation: pauseAnimation 1s ease-in-out;
+    animation: pauseAnimation 0.8s ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
 
 .continue-screen-animation {
-    animation: continueAnimation 1s ease-in-out;
+    animation: continueAnimation 0.8s ease-in-out;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }
@@ -140,22 +141,29 @@ body {
     text-align: center;
     padding: 15%;
     color: papayawhip;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
 }
 
 .header {
-    font-size: 3.5vw;
+    font-size: 3vw;
+    height: 10vh;
     color: lightblue;
     text-transform: uppercase;
     font-family: 'Luckiest Guy', cursive;
     margin-left: 20px;
     margin-right: 20px;
+    text-align: center;
 }
 
 .pause-header {
     margin-top: 10%;
-    font-size: 4vw;
+    font-size: 5vw;
     height: 10vh;
     font-family: 'Luckiest Guy', cursive;
+    color: #666F9A;
+
 }
 
 
@@ -170,6 +178,7 @@ li {
 
 h1 {
     margin-bottom: 0px;
+    text-align: center;
 }
 
 h3 {
@@ -188,14 +197,12 @@ button {
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 50px;
-    animation: pulse 2s alternate infinite ease-in-out;
+    animation: pulse 3s alternate infinite ease-in-out;
 }
 
 @keyframes pulse {
-    0% {background-color: lightblue;
-        color: #666F9A;  }
-    100%   {background-color: #FF7373;
-        color: papayawhip;}
+    0% {background: #FF7373;}
+    100%   {background: #B73563;}
 }
     
 
@@ -209,14 +216,14 @@ button {
     justify-content: space-evenly;
     text-align: center;
     border-radius: 100px;
-    background-color: papayawhip;
+    background: papayawhip;
     cursor: pointer;
 }
 
 #alt0:hover, 
 #alt1:hover, 
 #alt2:hover {
-    background-color: #FF7373;
+    background: #FF7373;
 }
 
 .gridcontainer {
@@ -271,10 +278,18 @@ button {
 .player,
 .numbers{
     text-align: center;
-    background-color: #FF7373;
     border-radius: 100px;
     margin-top: 5px;
 }
+
+.player,
+.partner{
+    background: #FF7373;
+}
+
+/* .partner {
+    background: lightblue;
+} */
 
 .empty {
     border: 2px solid #FF7373;
@@ -297,7 +312,7 @@ button {
     animation: fadeIn 2s;
     animation-iteration-count: 1;
     /* font-family: 'Luckiest Guy', cursive; */
-    color: papayawhip;
+    color: #ffefd5;
     font-size: 1.5em;
 }
 
@@ -324,7 +339,8 @@ button {
 }
 
 .text {
-    color: #666F9A;
+    color: #8F89CE;
+    text-transform: uppercase;
 }
 
 
@@ -349,6 +365,10 @@ button {
         font-size: 12px;
     }
 
+    .header {
+        font-size: 4vw;
+    }
+
 
   }
 
@@ -363,6 +383,10 @@ button {
 
     .center {
         width: 100vw;
+    }
+
+    .header {
+        font-size: 5vw;
     }
 
 

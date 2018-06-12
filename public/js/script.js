@@ -28,10 +28,10 @@ let gameState = GameStates.Menu;
 
 
 const partnerAlt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//const partnerAlt = getRandomValueByWeight(numbers);
 
 
 let alternatives = [1,1,1];
-//createPartners();
 
 let numbersBar = null;
 
@@ -51,16 +51,17 @@ function startGame() {
 }
 
 // Random generate numbers for partner and add to html
-function drawAlternatives(numbers) {
-    partnerAlt.sort(function() {
-        return .5 - Math.random();
-    });
-
+function drawAlternatives(numberValue, answers = false) {
+     partnerAlt.sort(function() {
+         return .5 - Math.random();
+     });
+    
         numbersBar.innerHTML = "";
         for (var i = 0; i < 3; i++ ) {
             //document.querySelector('#numbersBar')
-            numbersBar.innerHTML += '<div id="alt' + i + '" class="numberstyle">' + numbers[i] + '</div>';
+            numbersBar.innerHTML += '<div id="alt' + i + '" class="numberstyle">' + numberValue[i] + '</div>';
         }
+    
 
 }
 
@@ -77,7 +78,6 @@ function checkNumbersBar() {
         break;
         // When the GameState is 0 - GetPartner
         case GameStates.GetPartner:
-        console.log('Get Partner');
             partner = player;
             player = partnerAlt[lane];
 
@@ -93,7 +93,6 @@ function checkNumbersBar() {
             // Ability to tap numbers (for phone)
             chooseAlternativeOnTap();
             chooseLaneOnTap();
-            console.log('move player on tap in Get Partner')
 
             let mx, mn;
             mx = correctAnswer  * 1.4;
@@ -119,13 +118,11 @@ function checkNumbersBar() {
             drawNumbersBar();
             drawAlternatives(alternatives);
             chooseAlternativeOnTap();
-            console.log('move player on tap in the end of get partner')
         break;
 
 
         // When the GameState is 1 - UsePartner
         case GameStates.UsePartner:
-        console.log('Use Partner')
             displayFeedbackText();
 
             hasReachedBottom = false;
@@ -134,8 +131,6 @@ function checkNumbersBar() {
             let myAnswer = alternatives[lane];
 
             chooseAlternativeOnTap();
-            console.log('move player on tap in use partner')
-
 
             if (myAnswer != correctAnswer){
                 wrongAnswer = true;
@@ -150,17 +145,17 @@ function checkNumbersBar() {
             calculateScore();
 
 
-            // setTimeout(function () {
+            // Wait a little bit before next round is initiated
+            setTimeout(function () {
                 drawNumbersBar();
                 drawAlternatives(partnerAlt);
-            // }, 500);
+            }, 800);
+            
 
             chooseAlternativeOnTap();
-            console.log('move player on tap in the end of use partner')
             
             partner = -1;
             gameState = GameStates.GetPartner;
-            //drawPlayer();
             
         break;
     }
@@ -225,8 +220,6 @@ function movePlayer (event){
 
     if (keyPressed == '38'){
         numbersPos = gameHeight;
-        console.log(numbersPos);
-        console.log('UP');
         setDistance(numbersPos);
     }
 
@@ -261,24 +254,18 @@ function chooseAlternativeOnTap () {
     alt0.addEventListener('mousedown', function () {
         lane = 0;
         numbersPos = gameHeight;
-        console.log(numbersPos);
-        console.log('alt0');
         setDistance(numbersPos);
     })
 
     alt1.addEventListener('mousedown', function () {
         lane = 1;
         numbersPos = gameHeight;
-        console.log(numbersPos);
-        console.log('alt1');
         setDistance(numbersPos);
     })
 
     alt2.addEventListener('mousedown', function () {
         lane = 2;
         numbersPos = gameHeight;
-        console.log(numbersPos);
-        console.log('alt1');
         setDistance(numbersPos);
     })
 }
@@ -291,19 +278,16 @@ function chooseLaneOnTap () {
 
     choose1.addEventListener('mousedown', function () {
         lane = 0;
-        console.log('choose1 ' + choose1);
         drawPlayer();
     })
 
     choose2.addEventListener('mousedown', function () {
         lane = 1;
-        console.log('choose2 ' + choose2);
         drawPlayer();
     })
 
     choose3.addEventListener('mousedown', function () {
         lane = 2;
-        console.log('choose3 ' + choose3);
         drawPlayer();
     })
 
@@ -407,12 +391,10 @@ function drawPlayer(){
         gameScreen.classList.add('hidden');
         totalGameScore += score;
         score = 0;
-        console.log('quit game');
 
         let totalGameScoreDiv = document.querySelector('#total-score');
         let gameInfo = document.querySelector('#game-info');
         gameInfo.classList.add('hidden');
-        console.log(gameInfo);
         totalGameScoreDiv.innerHTML = '<h3> Din totale poengsum er </h3> <h1 class="">' + totalGameScore + '</h1>';
 
 

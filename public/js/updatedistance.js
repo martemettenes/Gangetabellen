@@ -2,7 +2,6 @@
 function updateDistance() {
     const numbersBar = document.querySelector('#numbersbar');
     let numbersPos = numbersBar.offsetTop;
-    console.log(numbersPos);
 
     // When NumersBar position and gameHeight is equal, check what number the user chose as partner
     if (numbersPos >= gameHeight && hasReachedBottom == false) {
