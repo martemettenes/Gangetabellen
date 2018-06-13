@@ -34,29 +34,41 @@
 <div class="gridcontainer">
     <div id="pausescreen" class="fixed hidden">
         <h1 class="pause-header"> PAUSE </h1>
-        <h4 id="continue" class="text"> Fortsett </h4>
-        <h4 id="quit" class="text"> Avslutt </h4>
+        <h2 id="continue" class="text"> Fortsett </h2>
+        <h2 id="quit" class="text"> Avslutt </h2>
     </div>
     <div class="left"></div>
     <div class="center">
         <div id="start" class="">
-            
             <div class="header">
                 <h1>Gangespillet</h1>
             </div>
-            <img src="img/gangetabellen_pink1.svg" style="width: 50%; display: block; margin: 0 auto; margin-top: 10%; margin-bottom: 10%;">
+            <img src="img/gangetabellen_green1.svg" style="width: 50%; display: block; margin: 0 auto; margin-top: 10%; margin-bottom: 10%;">
+            <div id="total-score" class="hidden">
+                </div>
+            <button class="how-btn hidden"> HVORDAN SPILLER JEG?</button>
             <div id="game-info">
-                 <h3>Dette spillet består av to trinn:</h3>
-                 <ul>
-                    <li>Du får et tilfeldig tall. Velg et nytt tall du vil gange ditt tall med.</li>
-                    <li> Velg det riktige alternativet!</li>
-                </ul>
+                <h3 class="tagline">Hvor mange poeng klarer du å få på en runde?</h3>
+                <p> Du starter spillet med et tall. Dette tallet skal du gange med et annet tall, som du velger helt selv. Deretter velger du hvilket svaralternativ som er det rette svaret til gangestykket du nettopp har laget!</p>
+                <div class="how-to-play desktop">
+                    <h2 class="how-title">Slik styrer du:</h2>
+                    <p>Du kan enten trykke på tallene med datamusen eller trykke til høyre eller venstre på piltastene for å bytte mellom kolonnene.</p>
+                    <img class="keyboard-buttons" src="img/left-key.gif" alt="left key">
+                    <img class="keyboard-buttons" src="img/right-key.gif" alt="right key">
+                    <p>Du kan også trykke på opp-tasten for å velge et tall før det har rukket helt ned.</p>
+                    <img class="keyboard-buttons" src="img/up-key.gif" alt="up key">
+                    <p>Trenger du å tenke litt, kan du trykke på Space-knappen for å pause spillet.</p>
+                    <img class="space-button" src="img/space-key.gif" alt="space key">
+                </div>
+                <div class="how-to-play phone">
+                        <h2 class="how-title">Slik styrer du:</h2>
+                        <p>Trykk på sirklene for å flytte tallet ditt til høyre eller venstre</p>
+                        <p>Du kan også trykke på et av tallene i rekken for å velge det før det har rukket helt ned.</p>
+                </div>
             </div>
            
             <button class="startgame"> START </button>
-            
-            <div id="total-score">
-            </div>
+
         </div>
         <div id="game" class="game hidden">
             <div id="topgame">
@@ -65,11 +77,6 @@
                     <h4 id="score"> 0 </h4>
                 </div>
                 <h3 id="gange" class="fixed gange animation">Lykke til!</h3>
-                <!-- <div id="numbersbar" class="numbersbar flex animation">
-                    <div id="alt1" class="numberstyle"> 25</div>
-                    <div id="alt2" class="numberstyle"> 14 </div>
-                    <div id="alt3" class="numberstyle"> 5 </div>
-                </div> -->
             </div>
             <div id="choose" class="flex">
                 <div id="choose1" class="numberstyle"></div>

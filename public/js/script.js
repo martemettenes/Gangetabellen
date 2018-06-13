@@ -1,3 +1,17 @@
+const body = document.querySelector('body');
+const howBtn = document.querySelector('.how-btn');
+
+const gameInfo = document.querySelector('#game-info');
+
+let gameLives = 5;
+
+howBtn.addEventListener('mousedown', function () {
+    gameInfo.classList.remove('hidden');
+    howBtn.classList.add('hidden');
+
+});
+
+
 // Player stats
 let lane = 1;
 
@@ -27,7 +41,8 @@ let gameState = GameStates.Menu;
 
 
 
-const partnerAlt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//const partnerAlt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const partnerAlt = [1,2,3];
 //const partnerAlt = getRandomValueByWeight(numbers);
 
 
@@ -36,6 +51,13 @@ let alternatives = [1,1,1];
 let numbersBar = null;
 
 function startGame() {
+    gameLives = 5;
+    body.classList.add('no-scroll');
+    body.classList.add('blue-background');
+    window.scrollTo(0, 0);
+
+
+
     gameState = GameStates.GetPartner;
     //Create the numbersBar that contains the potential partner numbers.
     drawNumbersBar();
@@ -51,18 +73,16 @@ function startGame() {
 }
 
 // Random generate numbers for partner and add to html
-function drawAlternatives(numberValue, answers = false) {
+function drawAlternatives(numberValue) {
      partnerAlt.sort(function() {
          return .5 - Math.random();
      });
     
-        numbersBar.innerHTML = "";
-        for (var i = 0; i < 3; i++ ) {
-            //document.querySelector('#numbersBar')
-            numbersBar.innerHTML += '<div id="alt' + i + '" class="numberstyle">' + numberValue[i] + '</div>';
-        }
-    
-
+    numbersBar.innerHTML = "";
+    for (var i = 0; i < 3; i++ ) {
+        //document.querySelector('#numbersBar')
+        numbersBar.innerHTML += '<div id="alt' + i + '" class="numberstyle">' + numberValue[i] + '</div>';
+    }
 }
 
 
@@ -80,6 +100,7 @@ function checkNumbersBar() {
         case GameStates.GetPartner:
             partner = player;
             player = partnerAlt[lane];
+            givePointsToArray(numbers, partnerAlt[lane]);
 
             displayFeedbackText();
 
@@ -91,13 +112,10 @@ function checkNumbersBar() {
             hasReachedBottom = false;
 
             // Ability to tap numbers (for phone)
-            chooseAlternativeOnTap();
             chooseLaneOnTap();
 
             let mx, mn;
             mx = correctAnswer  * 1.4;
-            if(mx > 100)
-                mx = 100;
             mn = correctAnswer * 0.7;
 
             // Correct Answer alternatives
@@ -123,7 +141,6 @@ function checkNumbersBar() {
 
         // When the GameState is 1 - UsePartner
         case GameStates.UsePartner:
-            displayFeedbackText();
 
             hasReachedBottom = false;
             updateDistance();
@@ -142,21 +159,24 @@ function checkNumbersBar() {
                 displayFeedbackText();
             }
 
+            
+
             calculateScore();
 
 
             // Wait a little bit before next round is initiated
             setTimeout(function () {
                 drawNumbersBar();
+                for(let i = 0; i < 3; i ++){
+                    partnerAlt[i] = getRandomValueByWeight(numbers);
+                }
                 drawAlternatives(partnerAlt);
             }, 800);
             
 
             chooseAlternativeOnTap();
-            
             partner = -1;
             gameState = GameStates.GetPartner;
-            
         break;
     }
 
@@ -176,6 +196,10 @@ function drawNumbersBar() {
     numbersBar.classList.add('numbersbar');
     numbersBar.classList.add('flex');
     numbersBar.classList.add('animation');
+
+    if (gameLives == 0) {
+        setTimeout(quitGame(), 4000);
+    }
 }
 
 function createPartners() {
@@ -201,12 +225,13 @@ function displayFeedbackText(){
     }
 
     else if (gameState == GameStates.UsePartner && wrongAnswer == false){
-        document.querySelector('#gange').innerHTML = 'Ja! Riktig svar er ' + correctAnswer + '!';
+        document.querySelector('#gange').innerHTML = '<span class="correct-answer-text"> JA! </span> Riktig svar er ' + correctAnswer + '!';
     }
 
     else if (gameState == GameStates.UsePartner && wrongAnswer == true){
         // document.querySelector('#gange').innerHTML = player + ' * ' + partner + ' = ' + correctAnswer;
-        document.querySelector('#gange').innerHTML = 'Nei! Riktig svar er ' + correctAnswer + '!';
+        document.querySelector('#gange').innerHTML = '<span class="correct-answer-text"> Ånei.. </span> Riktig svar er ' + correctAnswer + '!';
+        gameLives -= 1;
     }
 
 }
@@ -269,6 +294,7 @@ function chooseAlternativeOnTap () {
         setDistance(numbersPos);
     })
 }
+
 
 function chooseLaneOnTap () {
 
@@ -387,17 +413,28 @@ function drawPlayer(){
     quitBtn.addEventListener('mousedown', quitGame);
 
     function quitGame() {
-        startScreen.classList.remove('hidden');
-        gameScreen.classList.add('hidden');
-        totalGameScore += score;
-        score = 0;
-
         let totalGameScoreDiv = document.querySelector('#total-score');
         let gameInfo = document.querySelector('#game-info');
-        gameInfo.classList.add('hidden');
-        totalGameScoreDiv.innerHTML = '<h3> Din totale poengsum er </h3> <h1 class="">' + totalGameScore + '</h1>';
+        
+        body.classList.remove('blue-background');
+        howBtn.classList.add('hidden');
+        startScreen.classList.remove('hidden');
+        gameScreen.classList.add('hidden');
 
+        totalGameScore += score;
 
+        if (score > 0){
+            howBtn.classList.remove('hidden');
+            gameInfo.classList.add('hidden');
+            totalGameScoreDiv.classList.remove('hidden');
+            totalGameScoreDiv.innerHTML = '<h3> Din totale poengsum er </h3> <h1 class="total-score">' + totalGameScore + '</h1>';
+        }
+
+        score = 0;
+
+        body.classList.remove('no-scroll');
+        window.scrollTo(0, 0);
+        
         pauseScreen.classList.add('continue-screen-animation');
     }
     

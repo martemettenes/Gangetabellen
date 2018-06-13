@@ -30,9 +30,20 @@ body {
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    line-height: 1.3;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+    /* background: #666F9A; */
     background: #666F9A;
+    color: #ECECEC;
+}
+
+.blue-background{
+    background: #666F9A;
+}
+
+.no-scroll {
+    overflow-y: hidden;
 }
 
 .flex {
@@ -42,8 +53,9 @@ body {
 
 
 .game {
-    height: 95vh;
+    height: 100vh;
     justify-content: flex-end;
+    padding-bottom: 5%;
 }
 
 #score {
@@ -53,12 +65,13 @@ body {
 }
 
 .scoreanimation {
-    animation: score 0.5s alternate-reverse 1;
+    animation: score 0.4s alternate-reverse 1 ease;
 }
 
 @keyframes score {
-    0% {font-size: 1em;}
-    100% {font-size: 2em;
+    0% {font-size: 1.2em;}
+    80% {font-size: 2.2em;}
+    100% {font-size: 1.9em;
     color: #FF7373;}
 }
 
@@ -66,7 +79,7 @@ body {
 #pause {
     margin: 0;
     padding-top: 10px;
-    font-size: 1.2em;
+    font-size: 1.5em;
     text-transform: uppercase;
 
 }
@@ -83,14 +96,19 @@ body {
     cursor: pointer;
 }
 
-
+#continue,
+#quit {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    font-size: 1.5em;
+}
 
 
 #pausescreen {
     width: 30vw;
     height: 100vh;
     z-index: 1000;
-    background: lightblue;
+    background: #add8e6;
     text-align: center;
 }
 
@@ -140,16 +158,62 @@ body {
 #start {
     text-align: center;
     padding: 15%;
-    color: papayawhip;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
 }
 
+.phone{
+    display: none;
+}
+
+.how-title {
+    color: #313131;
+    text-transform: uppercase;
+
+}
+
+.tagline {
+    color: #FF7373;
+    text-transform: uppercase;
+    font-size: 1.3em;
+}
+
+
+.how-to-play {
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    /* border: 2px solid #FF7373; */
+    border-radius: 5px;
+    padding: 5%;
+    background: #ECECEC;
+    color: #313131;
+    box-shadow: rgba(55, 60, 87, 0.2) 0px 2px 5px 5px;
+}
+
+.keyboard-buttons{
+    width: 30%;
+    max-width: 200px;
+}
+
+.space-button {
+    width: 60%;
+    max-width: 100%;
+}
+
+.space-button,
+.keyboard-buttons {
+    margin-bottom: 5%;
+    color: #313131;
+}
+
+
+
 .header {
     font-size: 3vw;
     height: 10vh;
-    color: lightblue;
+    color: #add8e6;
     text-transform: uppercase;
     font-family: 'Luckiest Guy', cursive;
     margin-left: 20px;
@@ -158,12 +222,12 @@ body {
 }
 
 .pause-header {
-    margin-top: 10%;
-    font-size: 5vw;
+    margin-top: 5%;
+    font-size: 8vw;
     height: 10vh;
+    margin-bottom: 10%;
     font-family: 'Luckiest Guy', cursive;
     color: #666F9A;
-
 }
 
 
@@ -179,6 +243,7 @@ li {
 h1 {
     margin-bottom: 0px;
     text-align: center;
+    margin-top: 3%;
 }
 
 h3 {
@@ -189,15 +254,18 @@ h3 {
 
 button {
     min-width: 10vw;
-    padding: 3%;
+    padding: 4%;
     background: #FF7373;
     border: none;
     border-radius: 5px;
-    color: papayawhip;
+    color: #ECECEC;
     font-size: 1.1em;
     font-weight: 700;
     margin-top: 50px;
-    animation: pulse 3s alternate infinite ease-in-out;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: rgba(55, 60, 87, 0.1) 0px 2px 5px 5px;
+    /* animation: pulse 3s alternate infinite ease-in-out; */
 }
 
 @keyframes pulse {
@@ -208,6 +276,20 @@ button {
 
 #total-score {
     margin-top: 10%;
+    margin-bottom: 10%;
+    /* border: 3px solid #add8e6; */
+    border-radius: 5px;
+    padding: 5%;
+    text-transform: uppercase;
+    background: #ECECEC;
+    color: #313131;
+    box-shadow: rgba(55, 60, 87, 0.2) 0px 2px 5px 5px;
+}
+
+.total-score{
+    margin-top: 5%;
+    font-size: 7em;
+    color: #666F9A;
 }
 
 #alt0,
@@ -216,7 +298,8 @@ button {
     justify-content: space-evenly;
     text-align: center;
     border-radius: 100px;
-    background: papayawhip;
+    background: #ECECEC;
+    color: #313131;
     cursor: pointer;
 }
 
@@ -253,7 +336,7 @@ button {
 
 #choose {
     width: 100%;
-    height: 20%;
+    height: 25%;
     bottom: 0px;
     justify-content: space-around;
     position: relative;
@@ -266,16 +349,15 @@ button {
     vertical-align: middle;
     font-size: 1.5em;
     font-weight: 500;
-
     user-select: none;
+    color: #313131;
 }
 
 #topgame {
-    height: 80%;
+    height: 75%;
 }
 
 .partner,
-.player,
 .numbers{
     text-align: center;
     border-radius: 100px;
@@ -285,6 +367,8 @@ button {
 .player,
 .partner{
     background: #FF7373;
+    text-align: center;
+    border-radius: 100px;
 }
 
 /* .partner {
@@ -302,7 +386,7 @@ button {
 
 .topbar {
     height: 10%;
-    color: papayawhip;
+    color: #ECECEC;
 }
 
 .gange {
@@ -312,8 +396,17 @@ button {
     animation: fadeIn 2s;
     animation-iteration-count: 1;
     /* font-family: 'Luckiest Guy', cursive; */
-    color: #ffefd5;
-    font-size: 1.5em;
+    color: #ECECEC;
+    font-size: 1.2em;
+}
+
+
+.correct-answer-text {
+    font-size: 1.7em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: #FF7373;
 }
 
 @keyframes fadeIn {
@@ -339,9 +432,11 @@ button {
 }
 
 .text {
-    color: #8F89CE;
+    color: #313131;
     text-transform: uppercase;
+    font-weight: 700;
 }
+
 
 
 
@@ -352,33 +447,62 @@ button {
 
 @media screen and (max-width: 800px) {
 
+    body {
+        font-size: 18px;
+    }
+
+    .game {
+        padding-bottom: 10%;
+    }
+
     .left, 
     .right {
-        display: hidden;
+        display: none;
     }
 
     .center {
         width: 100vw;
-    }
-    
-    body {
-        font-size: 12px;
     }
 
     .header {
         font-size: 4vw;
     }
 
+    #continue,
+    #quit {
+        font-size: 1.2em;
+    }
 
-  }
+    .desktop{
+        display: none;
+    }
+
+    .phone{
+        display: block;
+    }
+
+}
 
 
 
 @media screen and (max-width: 500px) {
+
+    body {
+        font-size: 20px;
+    }
+
+    button {
+        margin-top: 10px;
+        font-size: 0.8em;
+    }
+
+    .game {
+        padding-bottom: 0%;
+    }
     
     .left, 
     .right {
-        display: hidden;
+        display: none;
     }
 
     .center {
@@ -389,8 +513,35 @@ button {
         font-size: 5vw;
     }
 
+    #continue,
+    #quit {
+        font-size: 1em;
+    }
 
-  }
+    .pause-header {
+        font-size: 15vw;
+    }
+
+    .numbersbar {
+        justify-content: space-around;
+        position: relative;
+        animation: down 6s linear;
+        animation-iteration-count: 1;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .phone{
+        display: block;
+    }
+
+    .total-score{
+        font-size: 5em;
+    }
+
+}
 
 
 
