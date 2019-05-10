@@ -56,6 +56,10 @@ function startGame() {
     body.classList.add('blue-background');
     window.scrollTo(0, 0);
 
+    for (var i = 0; i < 100; i++) {
+        console.log(getRandomValueByWeight(numbers));
+    }
+
 
 
     gameState = GameStates.GetPartner;
@@ -114,16 +118,22 @@ function checkNumbersBar() {
             // Ability to tap numbers (for phone)
             chooseLaneOnTap();
 
-            let mx, mn;
-            mx = correctAnswer  * 1.4;
-            mn = correctAnswer * 0.7;
+            let max, min;
+            max = correctAnswer  * 1.4;
+            min = correctAnswer * 0.7;
 
             // Correct Answer alternatives
-            let alt0 = Math.floor( Math.random () * (mx - mn)+mn);
-            let alt1 = Math.floor( Math.random () * (mx - mn)+mn);
-            while(alt0 == alt1 || alt1 == correctAnswer){
-                alt0 = Math.floor( Math.random () * (mx - mn)+mn);
-                alt1 = Math.floor( Math.random () * (mx - mn)+mn);
+            let alt0 = Math.floor( Math.random () * (max - min)+min);
+            let alt1 = Math.floor(Math.random() * (max - min) + min);
+            let i = 0; //used to stop infinite while loop.
+            while (alt0 == alt1 || alt1 == correctAnswer || alt0 == correctAnswer) {
+                alt0 = Math.floor( Math.random () * (max - min)+min);
+                alt1 = Math.floor(Math.random() * (max - min) + min);
+                i++;
+                if (i > 100) {
+                    alt0 = Math.floor(min);
+                    alt1 = Math.floor(max+1);
+                }
             }
 
             alternatives = [alt0, alt1, correctAnswer];
